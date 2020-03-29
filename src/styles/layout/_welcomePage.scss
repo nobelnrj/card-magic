@@ -1,0 +1,102 @@
+.welcomeSection {
+  position: fixed;
+  text-align: center;
+  background-color: #ffffff;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  transition: all 1s ease;
+  font-family: "Cormorant Garamond", serif;
+  &.hide {
+    opacity: 0;
+    z-index: 0;
+  }
+  .welcomeContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    .heading {
+      font-size: 80px;
+      text-align: left;
+      @include bp(tablet) {
+        font-size: 50px;
+      }
+      @include bp(phone) {
+        font-size: 40px;
+      }
+    }
+    .sectionContent {
+      height: 0;
+      overflow: hidden;
+      transition: height 0.5s ease;
+      .guideline {
+        font-size: 40px;
+        text-align: left;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #d02000;
+        @include bp(tablet) {
+          font-size: 30px;
+        }
+        @include bp(phone) {
+          font-size: 20px;
+        }
+      }
+      .imgContainer {
+        width: 70%;
+        margin: 0 auto;
+        @include bp(smallDesktop) {
+          width: 100%;
+        }
+        img {
+          width: calc(100% / 10);
+          height: 150px;
+          margin: 0 5px 10px 0;
+          @include bp(tablet) {
+            width: calc(100% / 9);
+            height: 100px;
+          }
+          @include bp(phone) {
+            width: calc(100% / 8);
+            height: 60px;
+          }
+        }
+      }
+      .doneBtn {
+        padding: 10px;
+        background-color: #d02000;
+        color: #ffffff;
+        border-radius: 10px;
+        @include bp(phone) {
+          padding: 5px;
+          font-size: 12px;
+        }
+      }
+    }
+    &.animate {
+      .heading {
+        font-size: 40px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        text-shadow: none;
+        @include bp(tablet) {
+          font-size: 30px;
+        }
+        @include bp(phone) {
+          font-size: 20px;
+        }
+      }
+      .sectionContent {
+        height: 600px;
+        @include bp(phone) {
+          height: 470px;
+        }
+      }
+    }
+  }
+}

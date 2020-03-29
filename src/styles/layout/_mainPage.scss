@@ -1,0 +1,217 @@
+.hint {
+  position: absolute;
+  top: 13%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  background-color: #d02000;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  @include bp(tablet) {
+    font-size: 15px;
+  }
+  @include bp(phone) {
+    font-size: 12px;
+    padding: 5px;
+    width: 250px;
+    top: 9%;
+  }
+}
+
+/* slide show */
+
+.slideshow-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  .mySlides {
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 3s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.cards-container {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  @include bp(phone) {
+    top: 56%;
+  }
+}
+
+.col-3 {
+  width: calc((100% / 3) - 54px);
+  float: left;
+  margin-right: 50px;
+  &:last-child {
+    margin-right: 0px;
+    @include bp(phone) {
+      margin: 0 auto;
+    }
+  }
+  @include bp(smallDesktop) {
+    width: calc((100% / 3) - 6px);
+    margin-right: 9px;
+  }
+  @include bp(phone) {
+    width: 70%;
+    height: calc((100vh / 3) - 42px);
+    float: none;
+  }
+}
+
+.deck-1,
+.deck-2,
+.deck-3 {
+  padding: 10px;
+  border-radius: 25px;
+  cursor: pointer;
+  background-color: #00000042;
+  transition: transform 0.5s ease;
+  @include bp(phone) {
+    padding: 2px 15px;
+    margin: 0 auto 10px;
+  }
+  &:hover {
+    transform: scale(1.05);
+    @include bp(tablet) {
+      transform: scale(1);
+    }
+  }
+  img {
+    width: calc((100% / 3) - 5px);
+    height: 150px;
+    display: inline-block;
+    margin-right: 5px;
+    @include bp(tablet) {
+      height: 115px;
+    }
+    @include bp(phone) {
+      width: calc((100% / 3) - 14px);
+      height: calc((100% / 3) - 5px);
+      margin-right: 20px;
+      margin-bottom: 5px;
+    }
+    &:nth-child(3n) {
+      margin: 0;
+    }
+  }
+}
+
+.finalPopUp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000000d2;
+  z-index: 3;
+  width: 0px;
+  .popupContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #00000052;
+    width: 0;
+    transition: width 1s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    .finalContent {
+      font-size: 30px;
+      color: #ffffff;
+      margin-bottom: 35px;
+      @include bp(phone) {
+        font-size: 15px;
+      }
+    }
+    .finalCard {
+      width: 110px;
+      height: 150px;
+      margin-bottom: 35px;
+      @include bp(phone) {
+        width: 70px;
+        height: 100px;
+      }
+    }
+    .resetBtn,
+    .hireBtn {
+      padding: 15px;
+      border-radius: 25px;
+      transition: background-color 0.5 ease;
+      font-family: inherit;
+      border: solid 2px #ffffff;
+      display: inline-block;
+      margin-bottom: 10px;
+      @include bp(phone) {
+        font-size: 12px;
+        padding: 10px;
+      }
+    }
+    .resetBtn {
+      background-color: #ffffff7a;
+      color: #000000;
+      &:hover {
+        background-color: #000000b4;
+        color: #ffffff;
+      }
+    }
+    .hireBtn {
+      background-color: #d02000;
+      color: #ffffff;
+      margin-left: 10px;
+      &:hover {
+        background-color: #31d000;
+        color: #ffffff;
+      }
+    }
+  }
+  &.visible {
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    box-shadow: 0px 0px 4px 2px #181717;
+    .popupContent {
+      width: 100%;
+      padding: 20px;
+    }
+  }
+}

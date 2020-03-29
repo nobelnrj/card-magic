@@ -1,0 +1,45 @@
+header {
+  padding: 20px 0;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  background-color: #ffffff;
+  @include bp(phone) {
+    padding: 5px 0;
+    text-align: center;
+  }
+  h1 {
+    font-size: 30px;
+    color: #d02000;
+    text-transform: uppercase;
+    float: left;
+    vertical-align: middle;
+    @include bp(phone) {
+      font-size: 14px;
+      float: none;
+    }
+  }
+  ul {
+    float: right;
+    line-height: 30px;
+    vertical-align: middle;
+    @include bp(phone) {
+      float: none;
+    }
+    li {
+      display: inline-block;
+      color: #000000;
+      a {
+        svg {
+          width: 20px;
+          height: 20px;
+          fill: #000000;
+          vertical-align: middle;
+          &:hover {
+            fill: #d02000;
+          }
+        }
+      }
+    }
+  }
+}
