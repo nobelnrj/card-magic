@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   output: {
-    path: __dirname + "/docs"
+    path: __dirname + "/docs",
   },
   module: {
     rules: [
@@ -11,8 +11,8 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
+          loader: "babel-loader",
+        },
       },
       {
         test: /\.html$/,
@@ -20,29 +20,29 @@ module.exports = {
           {
             loader: "html-loader",
             options: {
-              minimize: true
-            }
-          }
-        ]
+              minimize: true,
+            },
+          },
+        ],
       },
       {
-        test: /\.(png|jpg|svg|ico)$/,
-        use: ["file-loader"]
+        test: /\.(png|jpg|ico)$/,
+        use: ["file-loader"],
       },
       {
         test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"]
-      }
-    ]
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+    ],
   },
   plugins: [
     new HTMLWebPackPlugin({
       template: "./src/index.html",
-      filename: "./index.html"
+      filename: "./index.html",
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
-      chunkFilename: "[id].css"
-    })
-  ]
+      chunkFilename: "[id].css",
+    }),
+  ],
 };
